@@ -1,0 +1,4 @@
+package ads.tiendopolis.entities.module2;
+
+public class Item {
+}
