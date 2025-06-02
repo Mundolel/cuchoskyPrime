@@ -6,8 +6,10 @@ protected void showScene(String sceneName) throws IOException {
                 getClass().getResource("/ads/tiendopolis/" + sceneName + ".fxml")
         );
         contenedor.getChildren().setAll(pane);
-    }
-**VS
+}
+**VS**
+
+
 public void switchToScene1(ActionEvent event) throws IOException { 
 Parent root = FXMLLoader. Load(getClass().getResource("Scene1.fxml")); 
 stage = (Stage)((Node) event.getSource()).getScene().getWindow(); 
