@@ -3,13 +3,19 @@ package ads.tiendopolis.entities.module1;
 import java.util.List;
 
 public class Inventario {
-    private List<Producto> productos;
-    private int alertaStockMinimo; // ?? its use is not clear, it doesn't stand what's it for
 
-    public void verificarDisponibilidad() {
+    List<Producto> productos;
 
+    public Inventario() {
+        this.productos = productos;
     }
-    public void generarAlertaStock() {
 
+    public List<Producto> getProductos() {
+        return productos;
     }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
 }
