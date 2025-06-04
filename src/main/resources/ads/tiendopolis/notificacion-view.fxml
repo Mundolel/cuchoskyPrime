@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ads.tiendopolis.NotificacionView"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.NotificacionController">
 
-</AnchorPane>
+    <!-- Header con título y botón volver -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#gestionView" styleClass="btn-back" text="← Volver" />
+
+            <Label styleClass="title" text="Notificaciones">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+
+    <!-- Contenido principal scrollable -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+
+            <VBox fx:id="vboxNotificaciones" spacing="15.0" styleClass="notifications-container">
+
+                <!-- Ejemplo de estructura de notificación -->
+                <VBox styleClass="notification-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <!-- Header de la notificación -->
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="notification-date" text="22 Mayo 2024 - 14:30">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="notification-status" text="● No leido">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <!-- Título de la notificación -->
+                    <Label styleClass="notification-title" text="Pedido Confirmado">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                    <!-- Mensaje -->
+                    <Label styleClass="notification-message" text="Tu pedido #12345 ha sido confirmado y está siendo preparado. Tiempo estimado: 25 minutos." wrapText="true">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+                <!-- Más ejemplos de notificaciones -->
+                <VBox styleClass="notification-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="notification-date" text="21 Mayo 2024 - 19:45">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="notification-status" text="● Leída">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Label styleClass="notification-title" text="Pedido Entregado">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="notification-message" text="Tu pedido #12344 ha sido entregado exitosamente. ¡Esperamos que disfrutes tu comida!" wrapText="true">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+                <VBox styleClass="notification-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="notification-date" text="20 Mayo 2024 - 12:15">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="notification-status" text="● Leída">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Label styleClass="notification-title" text="Oferta Especial">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="notification-message" text="¡Aprovecha un 20% de descuento en todas las pizzas este fin de semana! Código: PIZZA20" wrapText="true">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+                <VBox styleClass="notification-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="notification-date" text="19 Mayo 2024 - 16:22">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="notification-status" text="● Leída">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Label styleClass="notification-title" text="Devolución Procesada">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="notification-message" text="Tu solicitud de devolución ha sido procesada. El reembolso de $18.50 será acreditado en 3-5 días hábiles." wrapText="true">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

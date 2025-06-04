@@ -1,14 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ads.tiendopolis.DevolucionesView"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.DevolucionController">
 
-</AnchorPane>
+    <!-- Header con título y botón volver -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#gestionView" styleClass="btn-back" text="← Volver" />
+
+            <Label styleClass="title" text="Devoluciones">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+
+    <!-- Contenido principal scrollable -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+
+            <VBox fx:id="vboxDevoluciones" spacing="15.0" styleClass="returns-container">
+
+                <!-- Ejemplo de estructura de devolución -->
+                <VBox styleClass="return-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <!-- Header de la devolución -->
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="return-date" text="20 Mayo 2024">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="return-amount" text="18.50">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <!-- Estado de la devolución -->
+                    <Label styleClass="return-status" text="Estado: Procesada">
+                        <font>
+                            <Font size="12.0" />
+                        </font>
+                    </Label>
+
+                    <!-- Motivo -->
+                    <Label styleClass="return-reason" text="Motivo: Producto defectuoso">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                    <!-- Producto devuelto -->
+                    <Label styleClass="return-product" text="Producto: Pizza Margherita x1">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+                <!-- Más ejemplos de devoluciones -->
+                <VBox styleClass="return-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="return-date" text="15 Mayo 2024">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="return-amount" text="12.00">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Label styleClass="return-status" text="Estado: Pendiente">
+                        <font>
+                            <Font size="12.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="return-reason" text="Motivo: Pedido incorrecto">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="return-product" text="Producto: Hamburguesa Clásica x1">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+                <VBox styleClass="return-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="return-date" text="10 Mayo 2024">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="return-amount" text="25.75">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Label styleClass="return-status" text="Estado: Reembolsada">
+                        <font>
+                            <Font size="12.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="return-reason" text="Motivo: Cancelación del cliente">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="return-product" text="Producto: Ensalada César x2, Agua x1">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
