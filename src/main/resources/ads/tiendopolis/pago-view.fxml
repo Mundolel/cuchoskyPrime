@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.PagoController">
+
+   <!-- Header con título -->
+   <top>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <children>
+            <Button fx:id="btnGoBack" onAction="#carritoView" text="← Volver" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Pago" />
+         </children>
+      </HBox>
+   </top>
+
+   <!-- Contenido principal -->
+   <center>
+      <ScrollPane fitToWidth="true">
+         <content>
+            <VBox spacing="30.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+
+                  <!-- Resumen del pedido -->
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label text="Resumen del pedido" />
+                        <Separator />
+
+                        <!-- Lista de productos en el carrito -->
+                        <VBox fx:id="vboxOrderSummary" spacing="10.0">
+                           <!-- Los productos se añadirán dinámicamente aquí -->
+                        </VBox>
+
+                        <Separator />
+
+                        <!-- Total del pedido -->
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                           <children>
+                              <Label text="Total a pagar:" />
+                              <Label fx:id="lblTotal" text="000.0" />
+                           </children>
+                        </HBox>
+
+                     </children>
+                  </VBox>
+
+                  <!-- Métodos de pago -->
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label text="Método de pago" />
+                        <Separator />
+
+                        <!-- Tarjeta de crédito/débito -->
+                        <VBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rbCreditCard" text="💳 Tarjeta de crédito/débito">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="paymentMethodGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+
+                              <!-- Detalles de tarjeta (se muestran cuando se selecciona) -->
+                              <VBox fx:id="vboxCreditCardDetails" spacing="10.0">
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                                 <children>
+                                    <TextField fx:id="txtCardNumber" promptText="Número de tarjeta" />
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="txtExpiryDate" promptText="MM/AA" HBox.hgrow="ALWAYS" />
+                                          <TextField fx:id="txtCVV" promptText="CVV" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <TextField fx:id="txtCardHolderName" promptText="Nombre del titular" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+
+                        <!-- PayPal -->
+                        <RadioButton fx:id="rbPayPal" text="🅿️ PayPal" toggleGroup="$paymentMethodGroup" />
+
+                        <!-- Transferencia bancaria -->
+                        <VBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rbBankTransfer" text="🏦 Transferencia bancaria" toggleGroup="$paymentMethodGroup" />
+
+                              <!-- Detalles de transferencia -->
+                              <VBox fx:id="vboxBankTransferDetails" spacing="10.0">
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Datos bancarios:" />
+                                    <Label fx:id="lblBankDetails" text="Banco: Ejemplo Bank&#10;Cuenta: 1234-5678-9012-3456&#10;Titular: Tienda Online" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+
+                        <!-- Efectivo contra entrega -->
+                        <RadioButton fx:id="rbCashOnDelivery" text="💵 Efectivo contra entrega" toggleGroup="$paymentMethodGroup" />
+
+                        <!-- Billetera digital -->
+                        <RadioButton fx:id="rbDigitalWallet" text="📱 Billetera digital" toggleGroup="$paymentMethodGroup" />
+
+                     </children>
+                  </VBox>
+
+                  <!-- Información de envío -->
+                  <VBox spacing="15.0">
+                     <children>
+                        <Label text="Información de envío" />
+                        <Separator />
+
+                        <TextField fx:id="txtFullName" promptText="Nombre completo" />
+                        <TextField fx:id="txtAddress" promptText="Dirección" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="txtCity" promptText="Ciudad" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtPostalCode" promptText="Código postal" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="txtPhone" promptText="Teléfono" />
+                        <TextArea fx:id="txtDeliveryNotes" prefRowCount="3" promptText="Notas de entrega (opcional)" wrapText="true" />
+
+                     </children>
+                  </VBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+   <!-- Footer con botón de pagar -->
+   <bottom>
+      <VBox spacing="10.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Label text="Envío:" />
+                  <Label fx:id="lblShipping" text="0.00" />
+               </children>
+            </HBox>
+            <Separator />
+            <!-- Total nuevamente (sticky) -->
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Label text="Total: " />
+                  <Label fx:id="lblTotalFooter" text="000.0" />
+               </children>
+            </HBox>
+
+            <!-- Botón de pagar -->
+            <HBox alignment="CENTER">
+               <children>
+                  <Button fx:id="btnPay" onAction="#resumenPedidoView" prefHeight="50.0" prefWidth="300.0" text="💳 Proceder con el pago" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+
+</BorderPane>

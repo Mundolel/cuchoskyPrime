@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ads.tiendopolis.controllers.GestionController">
+
+    <!-- Header con título y botón volver -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#stockView" styleClass="btn-back" text="← Volver" />
+
+            <Label styleClass="title" text="Gestión de Cuenta">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+
+    <!-- Contenido principal -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane">
+            <VBox spacing="25.0" styleClass="main-container">
+                <padding>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+                </padding>
+
+                <!-- Sección de información personal -->
+                <VBox spacing="20.0" styleClass="section-container">
+
+                    <Label styleClass="section-title" text="Información Personal">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                    </Label>
+
+                    <!-- ID de Usuario (no editable) -->
+                    <VBox spacing="8.0">
+                        <Label styleClass="field-label" text="ID de Usuario">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtIdUsuario" editable="false" styleClass="field-readonly" text="USR001234" />
+                    </VBox>
+
+                    <!-- Nombre Completo -->
+                    <VBox spacing="8.0">
+                        <Label styleClass="field-label" text="Nombre Completo">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtNombreCompleto" promptText="Ingrese su nombre completo" styleClass="field-input" />
+                    </VBox>
+
+                    <!-- Correo Electrónico -->
+                    <VBox spacing="8.0">
+                        <Label styleClass="field-label" text="Correo Electrónico">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtCorreo" promptText="ejemplo@correo.com" styleClass="field-input" />
+                    </VBox>
+
+                    <!-- Contraseña -->
+                    <VBox spacing="8.0">
+                        <Label styleClass="field-label" text="Contraseña">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <PasswordField fx:id="txtContrasena" promptText="Ingrese su contraseña" styleClass="field-input" />
+                    </VBox>
+
+                    <!-- Botones de acción de cuenta -->
+                    <HBox spacing="15.0">
+                        <Button fx:id="btnCrearCuenta" mnemonicParsing="false" onAction="#crearCuentaView" styleClass="btn-secondary" text="Crear Cuenta" />
+                        <Button fx:id="btnGuardarConfiguracion" mnemonicParsing="false" onAction="#guardarConfig" styleClass="btn-primary" text="Guardar Configuración" />
+                    </HBox>
+
+                </VBox>
+
+                <!-- Separador -->
+                <Separator />
+
+                <!-- Sección de navegación -->
+                <VBox spacing="20.0" styleClass="section-container">
+
+                    <Label styleClass="section-title" text="Opciones de Cuenta">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                    </Label>
+
+                    <!-- Botones de navegación -->
+                    <VBox spacing="12.0">
+
+                        <Button fx:id="btnHistorialPedidos" alignment="CENTER_LEFT" maxWidth="Infinity" mnemonicParsing="false" onAction="#historialView" styleClass="btn-navigation" text="📋 Historial de Pedidos">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnNotificaciones" alignment="CENTER_LEFT" maxWidth="Infinity" mnemonicParsing="false" onAction="#notificacionView" styleClass="btn-navigation" text="🔔 Notificaciones de Usuario">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnDevoluciones" alignment="CENTER_LEFT" maxWidth="Infinity" mnemonicParsing="false" onAction="#devolucionesView" styleClass="btn-navigation" text="↩️ Devoluciones">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                    </VBox>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

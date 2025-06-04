@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.StockController">
+
+    <!-- Header con botones de navegación -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+            </padding>
+
+            <Label styleClass="title" text="Productos">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#carritoView" styleClass="btn-header" text="🛒 Carrito" />
+
+            <Button fx:id="btnCuenta" mnemonicParsing="false" onAction="#gestionView" styleClass="btn-header" text="👤 Cuenta" />
+
+        </HBox>
+    </top>
+
+    <!-- Contenido principal scrollable -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <VBox fx:id="vboxProductos" spacing="12.0" styleClass="products-container">
+
+                <!-- Ejemplo de estructura de producto -->
+                <HBox fx:id="producto1" alignment="CENTER_LEFT" onMouseClicked="#onProductoClick" spacing="15.0" styleClass="product-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="product-name" text="Pizza Margherita">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label styleClass="product-description" text="Salsa de tomate, mozzarella fresca, albahaca" />
+                    </VBox>
+
+                    <Label styleClass="product-price" text="12.99">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                </HBox>
+
+                <!-- Más ejemplos de productos -->
+                <HBox fx:id="producto2" alignment="CENTER_LEFT" onMouseClicked="#onProductoClick" spacing="15.0" styleClass="product-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="product-name" text="Hamburguesa Clásica">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label styleClass="product-description" text="Carne de res, lechuga, tomate, cebolla, queso" />
+                    </VBox>
+
+                    <Label styleClass="product-price" text="99">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                </HBox>
+
+                <HBox fx:id="producto3" alignment="CENTER_LEFT" onMouseClicked="#onProductoClick" spacing="15.0" styleClass="product-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="product-name" text="Ensalada César">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label styleClass="product-description" text="Lechuga romana, pollo, parmesano, crutones" />
+                    </VBox>
+
+                    <Label styleClass="product-price" text="7.50">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                </HBox>
+
+                <HBox fx:id="producto4" alignment="CENTER_LEFT" onMouseClicked="#onProductoClick" spacing="15.0" styleClass="product-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="product-name" text="Tacos de Pollo">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label styleClass="product-description" text="Tortilla de maíz, pollo marinado, cebolla, cilantro" />
+                    </VBox>
+
+                    <Label styleClass="product-price" text="9.75">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                </HBox>
+
+                <HBox fx:id="producto5" alignment="CENTER_LEFT" onMouseClicked="#onProductoClick" spacing="15.0" styleClass="product-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="product-name" text="Pasta Alfredo">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label styleClass="product-description" text="Fettuccine con salsa alfredo cremosa y pollo" />
+                    </VBox>
+
+                    <Label styleClass="product-price" text="11.25">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

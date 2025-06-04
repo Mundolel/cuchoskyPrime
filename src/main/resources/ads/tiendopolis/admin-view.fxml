@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.AdminController">
+    <children>
+        <Label text="Panel de Administración" />
+        <Separator />
+
+        <!-- Sección Gestión de Productos -->
+        <Label text="Gestión de Productos" />
+        <HBox spacing="10">
+         <TextField prefHeight="26.0" prefWidth="58.0" promptText="imagen" />
+            <TextField fx:id="txtNombreProducto" promptText="Nombre del producto" />
+            <TextField fx:id="txtDescripcionProducto" promptText="Descripción" />
+            <TextField fx:id="txtPrecioProducto" promptText="Precio" />
+            <TextField fx:id="txtStockProducto" promptText="Stock" />
+            <Button fx:id="btnAgregarProducto" onAction="#agregarProducto" text="Agregar Producto" />
+        </HBox>
+
+        <ComboBox fx:id="cmbCategorias" promptText="Seleccionar categoría" />
+
+        <!-- Lista de Productos -->
+        <Label text="Inventario Actual" />
+        <TableView fx:id="tblProductos">
+            <columns>
+                <TableColumn fx:id="colIdProducto" text="ID" />
+                <TableColumn fx:id="colNombreProducto" text="Nombre" />
+                <TableColumn fx:id="colPrecioProducto" text="Precio" />
+                <TableColumn fx:id="colStockProducto" text="Stock" />
+                <TableColumn fx:id="colCategoriaProducto" text="Categoría" />
+            </columns>
+        </TableView>
+
+        <Separator />
+
+        <!-- Sección Gestión de Devoluciones -->
+        <Label text="Gestión de Devoluciones" />
+        <TableView fx:id="tblDevoluciones">
+            <columns>
+                <TableColumn fx:id="colIdPedidoDevolucion" text="ID Pedido" />
+                <TableColumn fx:id="colFechaSolicitudDevolucion" text="Fecha Solicitud" />
+                <TableColumn fx:id="colEstadoDevolucion" text="Estado" />
+                <TableColumn fx:id="colMontoReintegro" text="Monto Reintegro" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="10">
+            <Button fx:id="btnAprobarDevolucion" onAction="#aprobarDevolucion" text="Aprobar Devolución" />
+            <Button fx:id="btnRechazarDevolucion" onAction="#rechazarDevolucion" text="Rechazar Devolución" />
+        </HBox>
+
+        <Separator />
+
+        <!-- Sección Gestión de Envíos -->
+        <Label text="Gestión de Envíos" />
+        <TableView fx:id="tblEnvios">
+            <columns>
+                <TableColumn fx:id="colIdPedidoEnvio" text="ID Pedido" />
+                <TableColumn fx:id="colDireccionEnvio" text="Dirección" />
+                <TableColumn fx:id="colFechaEstimada" text="Fecha Estimada" />
+                <TableColumn fx:id="colEstadoEnvio" text="Estado" />
+                <TableColumn fx:id="colCostoEnvio" text="Costo" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="10">
+            <Button fx:id="btnMarcarEntregado" onAction="#marcarEntregado" text="Marcar Entregado" />
+        </HBox>
+
+        <Separator />
+
+        <!-- Botones de Actualización -->
+        <HBox spacing="10">
+            <Button fx:id="btnActualizarDatos" onAction="#actualizarDatos" text="Actualizar Datos" />
+            <Button fx:id="btnGenerarReporte" onAction="#generarReporte" text="Generar Reporte" />
+        </HBox>
+    </children>
+</VBox>

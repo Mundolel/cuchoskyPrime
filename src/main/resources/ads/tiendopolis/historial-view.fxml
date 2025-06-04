@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.HistorialController">
+
+    <!-- Header con título y botón volver -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#gestionView" styleClass="btn-back" text="← Volver" />
+
+            <Label styleClass="title" text="Historial de Pedidos">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+
+    <!-- Contenido principal scrollable -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+
+            <VBox fx:id="vboxPedidos" spacing="15.0" styleClass="orders-container">
+
+                <!-- Ejemplo de estructura de pedido -->
+                <VBox styleClass="order-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <!-- Header del pedido -->
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="order-date" text="15 Mayo 2024">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="order-total" text="45.50">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <!-- Separador -->
+                    <Separator>
+                        <VBox.margin>
+                            <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                    </Separator>
+
+                    <!-- Lista de productos -->
+                    <VBox spacing="8.0" styleClass="products-list">
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Pizza Margherita" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x2" />
+                            <Label styleClass="product-price" text="24.00" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Coca Cola 500ml" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x3" />
+                            <Label styleClass="product-price" text="9.00" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Papas Fritas" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x1" />
+                            <Label styleClass="product-price" text="12.50" />
+                        </HBox>
+
+                    </VBox>
+                </VBox>
+
+                <!-- Segundo pedido de ejemplo -->
+                <VBox styleClass="order-card">
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label styleClass="order-date" text="12 Mayo 2024">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <Label styleClass="order-total" text="28.75">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Separator>
+                        <VBox.margin>
+                            <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                    </Separator>
+
+                    <VBox spacing="8.0" styleClass="products-list">
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Hamburguesa Clásica" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x1" />
+                            <Label styleClass="product-price" text="18.00" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Agua Mineral" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x2" />
+                            <Label styleClass="product-price" text="5.00" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="product-name" text="Ensalada César" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="product-quantity" text="x1" />
+                            <Label styleClass="product-price" text="15.75" />
+                        </HBox>
+
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

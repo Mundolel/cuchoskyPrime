@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.CarritoController">
+
+   <!-- Header con botón volver y título -->
+   <top>
+      <HBox alignment="CENTER_LEFT">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <children>
+            <Button fx:id="btnGoBack" onAction="#stockView" text="← Volver" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Carrito de Compras" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblItemCount" text="0 productos" />
+         </children>
+      </HBox>
+   </top>
+
+   <!-- Contenido principal -->
+   <center>
+      <ScrollPane fitToWidth="true">
+         <content>
+            <VBox spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+
+                  <!-- Mensaje cuando el carrito está vacío -->
+                  <VBox fx:id="vboxEmptyCart" alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Label text="🛒" />
+                        <Label text="Tu carrito está vacío" />
+                        <Label text="Añade productos para comenzar tu compra" />
+                        <Button fx:id="btnContinueShopping" text="Continuar comprando" />
+                     </children>
+                  </VBox>
+
+                  <!-- Lista de productos en el carrito -->
+                  <VBox fx:id="vboxCartItems" spacing="15.0">
+
+                     <!-- Ejemplo de item del carrito (se replicará dinámicamente) -->
+                     <VBox spacing="10.0">
+                        <children>
+                           <Label text="Productos en tu carrito:" />
+                           <Separator />
+                        </children>
+                     </VBox>
+
+                     <!-- Container donde se añadirán los productos dinámicamente -->
+                     <VBox fx:id="vboxProductList" spacing="10.0">
+                        <!-- Los productos se añadirán aquí dinámicamente -->
+                     </VBox>
+
+                  </VBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+   <!-- Footer con resumen y botón de pagar -->
+   <bottom>
+      <VBox fx:id="vboxCartFooter" spacing="15.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+
+            <Separator />
+
+            <!-- Resumen de totales -->
+            <VBox spacing="8.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <children>
+                        <Label text="Subtotal:" />
+                        <Label fx:id="lblSubtotal" text="0.00" />
+                     </children>
+                  </HBox>
+
+                  <Separator />
+               </children>
+            </VBox>
+
+            <!-- Botones de acción -->
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Button fx:id="btnClearCart" text="🗑️ Vaciar carrito" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnCheckout" onAction="#pagoView" prefHeight="50.0" prefWidth="200.0" text="💳 Proceder al pago" />
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+   </bottom>
+
+</BorderPane>
