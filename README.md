@@ -1,5 +1,5 @@
-# cuchoskyPrime
-Repositorio con los secretos de estado que guarda nuestro queridisimo profesor
+# tiendopolis
+Repositorio pa tiendopolis
 
 Template de modulos:
 ## // ============= MODULO 1: PRODUCTOS Y CATÁLOGO =============
