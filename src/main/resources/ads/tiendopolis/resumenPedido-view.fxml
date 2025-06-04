@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ads.tiendopolis.controllers.ResumenPedidoController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.ResumenPedidoController">
 
    <!-- Header con información del pedido -->
    <top>
@@ -147,7 +146,7 @@
             <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
          </padding>
 
-         <Button fx:id="btnAceptar" mnemonicParsing="false" prefWidth="200.0" styleClass="btn-accept" text="Aceptar">
+         <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#stockView" prefWidth="200.0" styleClass="btn-accept" text="Aceptar">
             <font>
                <Font name="System Bold" size="16.0" />
             </font>

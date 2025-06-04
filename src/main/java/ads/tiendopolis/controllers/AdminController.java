@@ -1,8 +1,11 @@
 package ads.tiendopolis.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
-public class AdminController {
+import java.io.IOException;
+
+public class AdminController extends BaseController {
     public void agregarProducto(ActionEvent actionEvent) {
     }
 
@@ -19,5 +22,10 @@ public class AdminController {
     }
 
     public void generarReporte(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    protected void iniciarView() throws IOException {
+        showScene("iniciar-view");
     }
 }

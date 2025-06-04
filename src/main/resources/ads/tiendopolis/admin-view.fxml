@@ -5,7 +5,13 @@
 
 <VBox fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ads.tiendopolis.controllers.AdminController">
     <children>
-        <Label text="Panel de Administración" />
+      <HBox prefHeight="13.0" prefWidth="819.0">
+         <children>
+              <Label text="Panel de Administración" />
+            <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="627.0" />
+            <Button mnemonicParsing="false" onAction="#iniciarView" text="← Volver" />
+         </children>
+      </HBox>
         <Separator />
 
         <!-- Sección Gestión de Productos -->
